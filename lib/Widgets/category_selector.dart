@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+
 class CategorySelector extends StatefulWidget {
   const CategorySelector({Key? key}) : super(key: key);
 
@@ -15,7 +17,6 @@ class _CategorySelectorState extends State<CategorySelector> {
   Widget build(BuildContext context) {
     return Container(
       height: 90.0,
-      color: Colors.red,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
@@ -32,7 +33,7 @@ class _CategorySelectorState extends State<CategorySelector> {
               child: Text(
                 categories[index],
                 style: TextStyle(
-                  color: index == selectedIndex ? Colors.white : Colors.white60,
+                  color: index == selectedIndex ? const Color.fromARGB(255, 73, 73, 73) : const Color.fromARGB(153, 138, 138, 138),
                   fontSize: 22.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,

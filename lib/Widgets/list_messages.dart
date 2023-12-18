@@ -1,11 +1,17 @@
-import 'package:chatui/models/message_model.dart';
+import 'package:chatui/controllers/auth_controller.dart';
+import 'package:chatui/modelsView/message_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ListMessages extends StatelessWidget {
-  const ListMessages({Key? key}) : super(key: key);
+  List<Message> messages;
+  ListMessages({required this.messages,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    User? user = Get.find<AuthController>().getCurrentUser();
+
     return Expanded(
       child: Container(
         decoration:const  BoxDecoration(
@@ -25,7 +31,7 @@ class ListMessages extends StatelessWidget {
               itemCount: messages.length,
               itemBuilder: (BuildContext context, int index) {
                 final Message message = messages[index];
-                final bool isMe = message.sender?.id == currentUser.id;
+                final bool isMe = message.sender == user!.uid;
                 return _buildMessage(context, message, isMe);
               }),
         ),
@@ -42,7 +48,7 @@ class ListMessages extends StatelessWidget {
         decoration: BoxDecoration(
             color: isMe == true
                 ? Theme.of(context).colorScheme.secondary
-                : const Color(0xFFFFEFEE),
+                : Color.fromARGB(255, 255, 243, 255),
             borderRadius: isMe == true
                 ? const BorderRadius.only(
                     topLeft: Radius.circular(15.0),
@@ -54,10 +60,10 @@ class ListMessages extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${message.time}',
-              style: const TextStyle(
+              message.time != null ? '${message.time}': "Mensaje" ,
+              style:  TextStyle(
                   fontSize: 16.0,
-                  color: Colors.blueGrey,
+                  color: isMe == true  ? Color.fromARGB(255, 255, 255, 255)  : Color.fromARGB(255, 100, 100, 100),
                   fontWeight: FontWeight.w600),
             ),
             const SizedBox(
@@ -65,9 +71,9 @@ class ListMessages extends StatelessWidget {
             ),
             Text(
               '${message.text}',
-              style: const TextStyle(
+              style:  TextStyle(
                   fontSize: 16.0,
-                  color: Colors.blueGrey,
+                  color: isMe == true  ? Color.fromARGB(255, 255, 255, 255)  : Color.fromARGB(255, 106, 106, 106),
                   fontWeight: FontWeight.w600),
             ),
           ],
