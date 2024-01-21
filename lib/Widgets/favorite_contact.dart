@@ -14,7 +14,7 @@ class FavoriteContact extends StatelessWidget {
       children: <Widget>[
 
         Container(
-          height: 120.0,
+          height: 110.0,
           child: ListView.builder(
             padding: const EdgeInsets.only(left: 10.0),
             scrollDirection: Axis.horizontal,
@@ -23,6 +23,7 @@ class FavoriteContact extends StatelessWidget {
               final UserContactModel user = friend[index];
 
               return Container(
+                margin: const EdgeInsets.only(right: 10),
                 padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
                 decoration:  BoxDecoration(
                   color: Colors.white,

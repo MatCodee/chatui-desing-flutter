@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color.fromARGB(255, 255, 241, 252),
       ),
-      home: SignInPage(),
+      home: Center(child: const CircularProgressIndicator()),
     );
   }
 }

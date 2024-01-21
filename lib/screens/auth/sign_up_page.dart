@@ -32,7 +32,7 @@ class SignUpPage extends StatelessWidget {
                     image: AssetImage('assets/images/logo.png'),
                   ),
                 ),
-                BigText(text: "Sign Up!",size: 30,color: Colors.black54,),
+                BigText(text: "Registrate!",size: 30,color: Colors.black54,),
                 const SizedBox(height: 20,),
                 InputFieldText(textController: _name, hintText: "Name", icon: Icons.person),
                 const SizedBox(height: 20,),
@@ -44,7 +44,7 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 30,),
                 GestureDetector(
                   onTap: () => Get.to(() => SignInPage()),
-                  child: SmallText(text: "Or Sign in",size: 18,color: Colors.black54,),
+                  child: SmallText(text: "O iniciar sesión",size: 18,color: Colors.black54,),
                 ),
                 const SizedBox(height: 20,),
                 SmallText(text: "Iniciar Sesion con Google",size: 20,color: Colors.black54,),

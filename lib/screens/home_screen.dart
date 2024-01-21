@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             //CategorySelector(),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,11 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     radius: 25.0,
                     backgroundImage: NetworkImage('${_userController.userModel.photo}'),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SmallText(text: "Good Morning",size: 15,color: Colors.black45,),
+                      SmallText(text: "Buenos Dias",size: 15,color: Colors.black45,),
                       BigText(text: _userController.userModel.name,size: 24,),
                     ],
                   ),
@@ -93,26 +93,28 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                      GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          _authController.signOut();
+                        },
                         child: Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 255, 156, 189),
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          child: Icon(Icons.search,color: Colors.white,),
+                          child: const Icon(Icons.search,color: Colors.white,),
                         ),
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       GestureDetector(
                         onTap: (){},
                         child: Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          child: Icon(Icons.add,color: Colors.white,),
+                          child: const Icon(Icons.add,color: Colors.white,),
                         ),
                       ),
                
@@ -121,16 +123,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             FavoriteContact(friend: userController.usersFriend),
             Expanded(
               child: Container(
                 height: 500.0,
-                margin: EdgeInsets.only(top: 20),
-                padding: EdgeInsets.only(top: 20),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
+                decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50.0),
                     topRight: Radius.circular(50.0)),
                 ),
@@ -139,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     //FavoriteContact(),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 30),
-                      padding: EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

@@ -30,12 +30,12 @@ class SignInPage extends StatelessWidget {
                   ),
                 ),
                 BigText(
-                  text: "Welcome!",
+                  text: "Bienvenido!",
                   size: 40,
                   color: Colors.black54,
                 ),
                 BigText(
-                  text: "Sign in with your account",
+                  text: "Iniciar Sesión con tu cuenta",
                   size: 20,
                   color: Colors.black45,
                 ),
@@ -54,14 +54,14 @@ class SignInPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                CustomButton(press: login, title: "Login"),
+                CustomButton(press: login, title: "Iniciar Sesión"),
                 const SizedBox(
                   height: 20,
                 ),
                 GestureDetector(
                   onTap: () => Get.to(() => SignUpPage()),
                   child: SmallText(
-                    text: "Or SignUp",
+                    text: "O registrarse",
                     size: 18,
                     color: Colors.black54,
                   ),

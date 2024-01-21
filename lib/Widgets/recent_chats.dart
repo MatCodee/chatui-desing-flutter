@@ -64,7 +64,7 @@ class RecentChats extends StatelessWidget {
                                 Container(
                                   width:
                                       MediaQuery.of(context).size.width * 0.4,
-                                  child: SmallText(text: 'Awesome song! 🥶',color: Colors.black54,size: 15,)
+                                  child: SmallText(text: user.status,color: Colors.black54,size: 15,)
                                 ),
                               ],
                             ),
