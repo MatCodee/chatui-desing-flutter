@@ -1,11 +1,13 @@
 import 'package:chatui/Widgets/big_text.dart';
 import 'package:chatui/Widgets/category_selector.dart';
+import 'package:chatui/Widgets/custom_search_delegate.dart';
 import 'package:chatui/Widgets/favorite_contact.dart';
 import 'package:chatui/Widgets/recent_chats.dart';
 import 'package:chatui/Widgets/small_text.dart';
 import 'package:chatui/controllers/auth_controller.dart';
 import 'package:chatui/controllers/user_controller.dart';
 import 'package:chatui/models/message_model.dart';
+import 'package:chatui/screens/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -76,10 +78,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Row(
                     children: [
-                    CircleAvatar(
-                    radius: 25.0,
-                    backgroundImage: NetworkImage('${_userController.userModel.photo}'),
-                  ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => const ProfileScreen());
+                      },
+                      child: CircleAvatar(
+                      radius: 25.0,
+                      backgroundImage: NetworkImage('${_userController.userModel.photo}'),
+                                        ),
+                    ),
                   const SizedBox(width: 20,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +101,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                      GestureDetector(
                         onTap: (){
-                          _authController.signOut();
+                          //_authController.signOut();
+                          showSearch(context: context, delegate: CustomSearchDelegate());
                         },
                         child: Container(
                           padding: const EdgeInsets.all(8),
@@ -106,6 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(width: 10,),
+                      /*
                       GestureDetector(
                         onTap: (){},
                         child: Container(
@@ -117,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: const Icon(Icons.add,color: Colors.white,),
                         ),
                       ),
+                      */
                
                     ],
                   )

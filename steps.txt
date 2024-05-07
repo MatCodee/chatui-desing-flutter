@@ -1,0 +1,8 @@
+Implementacion de funcionalidades:
+
+- Realtime Messages
+- pagina de configuracion, cerrar sesion, cambio de nombre y informacion personal
+- SearchDelegate para agregar a usuarios
+
+
+

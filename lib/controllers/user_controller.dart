@@ -36,6 +36,7 @@ class UserController extends GetxController {
         final List<dynamic> list_friend = _userModel.friends;
           usersFriend.clear();
 
+        // Esta consulta no esta optimizada 
         for (var t in list_friend) {
           final DocumentSnapshot doc = await _firebaseFirestore.collection('users').doc(t).get();
           final data = doc.data() as Map<String, dynamic>;
@@ -49,5 +50,26 @@ class UserController extends GetxController {
       print(e);
     }
   }
+  // traer todos los nombres de los usuarios registrados y almacenarlos en un son
+  //Future<void> allUsersNames() {}
+  
   // agregar otros usuarios
+  Future<List<UserContactModel>> getUsersFilterbyName(List<String> name) async {
+    List<UserContactModel> results = [];
+    try {
+      if(_userModel != null) {
+        final docRef = await _firebaseFirestore.collection('users')
+          .where('name', isEqualTo: name).get();
+        for(QueryDocumentSnapshot doc in docRef.docs) {
+          final data = doc.data() as Map<String, dynamic>;
+          results.add(UserContactModel.fromJson(data));
+        }
+        return results;
+      }
+    } catch (e) {
+      print(e);
+    }
+    return results;
+  } 
+
 }
